@@ -25,7 +25,7 @@ SECRET_KEY = '-dncozmb7foe9=i#_ljadm__&j^i5d&w_0f(pw&deyazf91#5$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'akg92.pythonanywhere.com']
+ALLOWED_HOSTS = [u'akg92.pythonanywhere.com', 'localhost', "*"]
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -47,8 +49,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
-
+CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'watermarkremove.urls'
 
 TEMPLATES = [
@@ -69,7 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'watermarkremove.wsgi.application'
 
-
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -121,7 +125,10 @@ STATIC_URL = '/static/'
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = u'/home/akg92/watermarkremove/media'
+# MEDIA_ROOT = u'/home/akg92/watermarkremove/media'
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/akg92/watermarkremove/static'
-STATIC_URL = '/static/'
+# STATIC_ROOT = u'/home/akg92/watermarkremove/static'
+# STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]

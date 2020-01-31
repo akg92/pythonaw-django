@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from watermark.views.file_process_view import FileUploadView
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #  path('upload/<slug:file_name>', FileUploadView.as_view()),
+     path('upload/<filename>', FileUploadView.as_view())
 ]

@@ -1,0 +1,16 @@
+<div >
+<form>
+    <div class="custom-file form-group">
+      <input type="file" class="custom-file-input" id="customFile" (change)="fileSelect($event)">
+      <label class="custom-file-label" for="customFile" for="custom-file">Choose Pdf file</label>
+      <div id="customFileText" for="custom-file">{{fileText}}</div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <button  (click)="submit()" class="ml-auto mr-auto btn btn-primary"> Submit</button>
+      </div>
+      </div>
+</form>
+  
+</div>
